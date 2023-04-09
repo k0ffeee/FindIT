@@ -750,9 +750,9 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nm_caracteristica": "",
-    "tp_caracteristica": "",
-    "ds_caracteristica": ""
+    "nm_caracteristica": "Clima",
+    "tp_caracteristica": "Calor",
+    "ds_caracteristica": "O lugar de destino é quente"
 }   
 
 ```
@@ -776,9 +776,9 @@ Uma API para obter informações sobre turismo
 ```js
 {    
     "id_caracterista": 1,
-    "nm_caracteristica": "",
-    "tp_caracteristica": "",
-    "ds_caracteristica": ""
+    "nm_caracteristica": "Clima",
+    "tp_caracteristica": "Frio",
+    "ds_caracteristica": "O lugar do destino é frio"
 
 }   
 
@@ -800,14 +800,16 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nm_caracteristica": "",
-    "tp_caracteristica": "",
-    "ds_caracteristica": ""
+    "id_caracterista": 1,
+    "nm_caracteristica": "Clima",
+    "tp_caracteristica": "Calor",
+    "ds_caracteristica": "O lugar de destino é quente"
 }
 {
-    "nm_caracteristica": "",
-    "tp_caracteristica": "",
-    "ds_caracteristica": ""
+    "id_caracterista": 2,
+    "nm_caracteristica": "Clima",
+    "tp_caracteristica": "Frio",
+    "ds_caracteristica": "O lugar do destino é frio"
 }
 ```
 
@@ -825,9 +827,9 @@ Uma API para obter informações sobre turismo
 ```js 
 {
     "id_caracterista": 1,
-    "nm_caracteristica": "",
-    "tp_caracteristica": "",
-    "ds_caracteristica": ""
+    "nm_caracteristica": "Clima",
+    "tp_caracteristica": "Calor",
+    "ds_caracteristica": "O lugar de destino é quente"
 }
 ```
 
