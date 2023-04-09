@@ -69,8 +69,8 @@ Uma API para obter informações sobre turismo
 |Campo|Tipo|Obrigatório|Descriação
 |------ |------|:-----------: |---------
 |ID|Numeric|sim|ID da agencia para identifica-la
-|Nome|text|sim|Nome do evento para poder indentificar.
-|Sigla|text|não|Sigla do evento para poder indentificar.
+|Nome|text|sim|Nome da agencia para poder indentificar.
+|Sigla|text|não|Sigla da agencia para poder indentificar.
 
 
 **Exemplo de corpo de requisição**
@@ -95,6 +95,33 @@ Uma API para obter informações sobre turismo
 |400 | os campos enviados sao invalidos
 
 
+### Atualizar agencia
+`PUT`/api/agencia/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  "ID": 1,
+  "Nome":"CVC",
+  "Sigla": "CVC" 
+}   
+
+```
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+
+
+
 ### Listar todos 
 
 **Exemplo de corpo de requisição** 
@@ -108,16 +135,41 @@ Uma API para obter informações sobre turismo
 {
     "ID": 1,
     "Nome":"123milhas",
-    "Sigla": "123" 
+    "Sigla": "" 
 }
 ```
 
 **Cógigos de respota**
 
-    |código| descrição
-    | - | -
-    |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe agencia cadastrado
 
 
+### Detalhar Agencia 
+
+`GET`/api/agencia/{id}
+```js 
+{
+    "ID": 1,
+    "Nome":"CVC",
+    "Sigla": "CVC" 
+}
+```
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe agencia cadastrada
+
+### Apagar agencia
+`DELETE`/api/agencia/{id}
+
+|código| descrição
+| - | -
+|204 | dado apagado com sucesso
+|401 | não existe dado com o id informado
 
