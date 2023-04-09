@@ -132,8 +132,7 @@ Uma API para obter informações sobre turismo
 }
 {
     "id_agencia": 2,
-    "Nome":"123milhas",
-    "Sigla": "" 
+    "Nome":"123milhas"
 }
 ```
 
@@ -503,6 +502,120 @@ Uma API para obter informações sobre turismo
 
 ### Apagar viagem 
 `DELETE`/api/viagem/{id}
+
+|código| descrição
+| - | -
+|204 | dado apagado com sucesso
+|401 | não existe dado com o id informado
+
+
+
+
+### Cadastrar usuario 
+
+`POST`/api/usuario
+
+|Campo|Tipo|Obrigatório|Descriação
+|------ |------|:-----------: |---------
+|Nome|text|sim|Nome do usuario para poder indentificar.
+|Email|text|sim|Email do usuario.
+|Senha|text|sim|Senha do usuario.
+
+
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  "Nome":"FernandoCesxr",
+  "Email": "rm95628@fiap.com.br",
+  "Senha": "I0x3R9#5RGGF"
+}
+
+```
+
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+### Atualizar usuario
+`PUT`/api/usuario/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  "Nome":"Fernando",
+  "Email": "cesarfernandocarlos@gmail.com",
+  "Senha": "I0x3R9#5R"
+}   
+
+```
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+### Listar todos 
+`GET`/api/usuario
+**Exemplo de corpo de requisição** 
+
+```js
+{
+    "id_usuario": 1,
+    "Nome":"FernandoCesxr",
+    "Email": "rm95628@fiap.com.br",
+    "Senha": "I0x3R9#5RGGF"
+}
+{
+    "id_usuario": 2,
+    "Nome":"Fernando",
+    "Email": "cesarfernandocarlos@gmail.com",
+    "Senha": "I0x3R9#5R"
+}
+```
+
+**Cógigos de respota**
+
+    |código| descrição
+    | - | -
+    |200 | dados retornados com sucesso
+    |402 | não existe evento cadastrado
+
+### Detalhar usuario 
+
+`GET`/api/usuario/{id}
+```js 
+{
+    "id_usuario": 1,
+    "Nome":"FernandoCesxr",
+    "Email": "rm95628@fiap.com.br",
+    "Senha": "I0x3R9#5RGGF"
+}
+```
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe usuario cadastrada
+
+### Apagar usuario
+`DELETE`/api/usuario/{id}
 
 |código| descrição
 | - | -
