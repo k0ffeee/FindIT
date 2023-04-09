@@ -68,7 +68,6 @@ Uma API para obter informações sobre turismo
 
 |Campo|Tipo|Obrigatório|Descriação
 |------ |------|:-----------: |---------
-|ID|Numeric|sim|ID da agencia para identifica-la
 |Nome|text|sim|Nome da agencia para poder indentificar.
 |Sigla|text|não|Sigla da agencia para poder indentificar.
 
@@ -133,7 +132,7 @@ Uma API para obter informações sobre turismo
     "Sigla": "CVC" 
 }
 {
-    "ID": 1,
+    "ID": 2,
     "Nome":"123milhas",
     "Sigla": "" 
 }
