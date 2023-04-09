@@ -76,8 +76,8 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-  "Nome":"CVC",
-  "Sigla": "CVC" 
+  "nm_agencia":"CVC",
+  "sg_agencia": "CVC" 
 }   
 
 ```
@@ -101,8 +101,8 @@ Uma API para obter informações sobre turismo
 ```js
 {
   "id_agencia": 1,
-  "Nome":"CVC",
-  "Sigla": "CVC" 
+  "nm_agencia":"CVC",
+  "sg_agencia": "CVC" 
 }   
 
 ```
@@ -127,12 +127,12 @@ Uma API para obter informações sobre turismo
 ```js
 {
     "id_agencia": 1,
-    "Nome":"CVC",
-    "Sigla": "CVC" 
+    "nm_agencia":"CVC",
+    "sg_agencia": "CVC" 
 }
 {
     "id_agencia": 2,
-    "Nome":"123milhas"
+    "nm_agencia":"123milhas"
 }
 ```
 
@@ -150,8 +150,8 @@ Uma API para obter informações sobre turismo
 ```js 
 {
     "id_agencia": 1,
-    "Nome":"CVC",
-    "Sigla": "CVC" 
+    "nm_agencia":"CVC",
+    "sg_agencia": "CVC" 
 }
 ```
 
@@ -183,9 +183,9 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-  "Nome":"Rio de janeiro",
-  "Tipo": "Viagem de avião",
-  "Descrição": "Viagem de avião com tudo pago para o rio de janeiro"
+  "nm_pacote":"Rio de janeiro",
+  "tp_pacote": "Viagem de avião",
+  "ds_pacote": "Viagem de avião com tudo pago para o rio de janeiro"
 }   
 
 ```
@@ -207,9 +207,9 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-  "Nome":"Rio de janeiro",
-  "Tipo": "Viagem de avião",
-  "Descrição": "Viagem de avião com tudo pago para o rio de janeiro"
+  "nm_pacote":"Rio de janeiro",
+  "tp_pacote": "Viagem de avião",
+  "ds_pacote": "Viagem de avião com tudo pago para o rio de janeiro"
 }   
 
 ```
@@ -231,15 +231,15 @@ Uma API para obter informações sobre turismo
 ```js
 {
     "id_pacote": 1,
-    "Nome":"Rio de janeiro",
-    "Tipo": "Viagem de avião",
-    "Descrição": "Viagem de avião com tudo pago para o rio de janeiro" 
+    "nm_pacote":"Rio de janeiro",
+    "tp_pacote": "Viagem de avião",
+    "ds_pacote": "Viagem de avião com tudo pago para o rio de janeiro" 
 }
 {    
     "id_pacote": 2,
-    "Nome":"Rio de janeiro",
-    "Tipo": "Viagem de avião",
-    "Descrição": "Viagem de avião com tudo pago para o rio de janeiro"
+    "nm_pacote":"Rio de janeiro",
+    "tp_pacote": "Viagem de avião",
+    "ds_pacote": "Viagem de avião com tudo pago para o rio de janeiro"
 }
 ```
 
@@ -256,9 +256,9 @@ Uma API para obter informações sobre turismo
 ```js 
 {
     "id_pacote": 1,
-    "Nome":"Rio de janeiro",
-    "Tipo": "Viagem de avião",
-    "Descrição": "Viagem de avião com tudo pago para o rio de janeiro" 
+    "nm_pacote":"Rio de janeiro",
+    "tp_pacote": "Viagem de avião",
+    "ds_pacote": "Viagem de avião com tudo pago para o rio de janeiro" 
 }
 ```
 
@@ -292,7 +292,7 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nome": "Rio de Janeiro",
+    "nm_destino": "Rio de Janeiro",
     "ds_pontos_turisticos": "Cristo redentor que fica localizado no Rio de Janeiro",
     "sg_pais":  "BR" 
 }   
@@ -317,7 +317,7 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nome": "Arizona",
+    "nm_destino": "Arizona",
     "ds_pontos_turisticos": "Grand Cannyon onde é localizado no arizona",
     "sg_pais":  "EUA" 
 }   
@@ -345,13 +345,13 @@ Uma API para obter informações sobre turismo
 ```js
 {
     "id_destino": 1,
-    "nome": "Rio de janeiro",
+    "nm_destino": "Rio de janeiro",
     "ds_pontos_turisticos": "Cristo redentor que fica localizado no Rio de Janeiro",
     "sg_pais":  "BR" 
 }
 {
     "id_destino": 2,
-    "nome": "Arizona",
+    "nm_destino": "Arizona",
     "ds_pontos_turisticos": "Grand Cannyon onde é localizado no arizona",
     "sg_pais":  "EUA" 
 }
@@ -371,7 +371,7 @@ Uma API para obter informações sobre turismo
 ```js 
 {
     "id_destino": 1,
-    "nome": "Cristo redentor",
+    "nm_destino": "Cristo redentor",
     "ds_pontos_turisticos": "Cristo redentor que fica localizado no Rio de Janeiro",
     "sg_pais":  "BR" 
 }
@@ -478,7 +478,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+    |402 | não existe viagem cadastrado
 
 
 ### Detalhar viagem 
@@ -527,9 +527,9 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-  "Nome":"FernandoCesxr",
-  "Email": "rm95628@fiap.com.br",
-  "Senha": "I0x3R9#5RGGF"
+  "nm_usuario":"FernandoCesxr",
+  "nm_email": "rm95628@fiap.com.br",
+  "nm_senha": "I0x3R9#5RGGF"
 }
 
 ```
@@ -552,9 +552,9 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-  "Nome":"Fernando",
-  "Email": "cesarfernandocarlos@gmail.com",
-  "Senha": "I0x3R9#5R"
+  "nm_usuario":"Fernando",
+  "nm_email": "cesarfernandocarlos@gmail.com",
+  "nm_senha": "I0x3R9#5R"
 }   
 
 ```
@@ -576,15 +576,15 @@ Uma API para obter informações sobre turismo
 ```js
 {
     "id_usuario": 1,
-    "Nome":"FernandoCesxr",
-    "Email": "rm95628@fiap.com.br",
-    "Senha": "I0x3R9#5RGGF"
+    "nm_usuario":"FernandoCesxr",
+    "nm_email": "rm95628@fiap.com.br",
+    "nm_senha": "I0x3R9#5RGGF"
 }
 {
     "id_usuario": 2,
-    "Nome":"Fernando",
-    "Email": "cesarfernandocarlos@gmail.com",
-    "Senha": "I0x3R9#5R"
+    "nm_usuario":"Fernando",
+    "nm_email": "cesarfernandocarlos@gmail.com",
+    "nm_senha": "I0x3R9#5R"
 }
 ```
 
@@ -593,7 +593,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+    |402 | não existe usuario cadastrado
 
 ### Detalhar usuario 
 
@@ -601,9 +601,9 @@ Uma API para obter informações sobre turismo
 ```js 
 {
     "id_usuario": 1,
-    "Nome":"FernandoCesxr",
-    "Email": "rm95628@fiap.com.br",
-    "Senha": "I0x3R9#5RGGF"
+    "nm_usuario":"FernandoCesxr",
+    "nm_email": "rm95628@fiap.com.br",
+    "nm_senha": "I0x3R9#5RGGF"
 }
 ```
 
@@ -703,7 +703,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+    |402 | não existe preferencia cadastrado
 
 
 ### Detalhar preferencia 
@@ -795,7 +795,7 @@ Uma API para obter informações sobre turismo
 
 
 ### Listar todos 
-`GET`/api/caracterista
+`GET`/api/caracteristica
 **Exemplo de corpo de requisição** 
 
 ```js
@@ -816,7 +816,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+    |402 | não existe caracteristica cadastrado
 
 
 ### Detalhar caracterista 
@@ -930,7 +930,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe evento cadastrado
+    |402 | não existe passeio cadastrado
 
 
 ### Detalhar passeio 
