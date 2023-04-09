@@ -110,14 +110,14 @@ Uma API para obter informações sobre turismo
     "Nome":"123milhas",
     "Sigla": "123" 
 }
+```
+
 **Cógigos de respota**
 
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
     |402 | não existe evento cadastrado
-
-```
 
 
 
