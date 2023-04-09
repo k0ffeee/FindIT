@@ -292,7 +292,7 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nome": "Cristo redentor",
+    "nome": "Rio de Janeiro",
     "ds_pontos_turisticos": "Cristo redentor que fica localizado no Rio de Janeiro",
     "sg_pais":  "BR" 
 }   
@@ -317,7 +317,7 @@ Uma API para obter informações sobre turismo
 
 ```js
 {
-    "nome": "Grand Canyon",
+    "nome": "Arizona",
     "ds_pontos_turisticos": "Grand Cannyon onde é localizado no arizona",
     "sg_pais":  "EUA" 
 }   
@@ -345,13 +345,13 @@ Uma API para obter informações sobre turismo
 ```js
 {
     "id_destino": 1,
-    "nome": "Cristo redentor",
+    "nome": "Rio de janeiro",
     "ds_pontos_turisticos": "Cristo redentor que fica localizado no Rio de Janeiro",
     "sg_pais":  "BR" 
 }
 {
     "id_destino": 2,
-    "nome": "Grand Canyon",
+    "nome": "Arizona",
     "ds_pontos_turisticos": "Grand Cannyon onde é localizado no arizona",
     "sg_pais":  "EUA" 
 }
@@ -621,4 +621,344 @@ Uma API para obter informações sobre turismo
 | - | -
 |204 | dado apagado com sucesso
 |401 | não existe dado com o id informado
+
+
+### Cadastrar preferencias 
+
+`POST`/api/preferencias
+
+|Campo|Tipo|Obrigatório|Descriação
+|------ |------|:-----------: |---------
+|Nome|text|sim|sim|Nome da preferencia.
+|Tipo|text|sim|sim|Tipo da preferencia.
+|Descriação|text|sim|Descriação da preferencia. 
+
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  "nm_preferencia":"Clima",
+  "tp_preferencia": "Calor" ,
+  "ds__preferencia": "O usuário prefere calor"
+}   
+
+```
+
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+### Atualizar preferencias
+`PUT`/api/preferencias/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  "nm_preferencia":"Clima",
+  "tp_preferencia": "Frio" ,
+  "ds__preferencia": "O usuário prefere frio"
+}   
+
+```
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+### Listar todos 
+`GET`/api/preferencia
+**Exemplo de corpo de requisição** 
+
+```js
+{
+    "id_preferencia": 1,
+    "nm_preferencia":"Clima",
+     "tp_preferencia": "Calor" ,
+    "ds__preferencia": "O usuário prefere calor"
+}
+{
+    "id_preferencia": 2,
+     "nm_preferencia":"Clima",
+     "tp_preferencia": "Frio" ,
+     "ds__preferencia": "O usuário prefere frio"
+}
+```
+
+**Cógigos de respota**
+
+    |código| descrição
+    | - | -
+    |200 | dados retornados com sucesso
+    |402 | não existe evento cadastrado
+
+
+### Detalhar preferencia 
+
+`GET`/api/preferencia/{id}
+```js 
+{
+    "id_preferencia": 1,
+    "nm_preferencia":"Clima",
+    "tp_preferencia": "Calor" ,
+    "ds__preferencia": "O usuário prefere calor"
+}
+```
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe preferencia cadastrada
+
+
+### Apagar preferencia
+`DELETE`/api/preferencia/{id}
+
+|código| descrição
+| - | -
+|204 | dado apagado com sucesso
+|401 | não existe dado com o id informado
+
+
+### Cadastrar caracterista 
+
+`POST`/api/caracterista
+
+|Campo|Tipo|Obrigatório|Descriação
+|------ |------|:-----------: |---------
+|Nome|text|sim|Nome da caracteristica para poder indentificar.
+|Tipo|text|sim|Tipo da caracteristica para poder indentificar.
+|Descrição|text|sim|Descrição da caracteristica.
+
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+    "nm_caracteristica": "",
+    "tp_caracteristica": "",
+    "ds_caracteristica": ""
+}   
+
+```
+
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+### Atualizar caracterista
+`PUT`/api/caracterista/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{    
+    "id_caracterista": 1,
+    "nm_caracteristica": "",
+    "tp_caracteristica": "",
+    "ds_caracteristica": ""
+
+}   
+
+```
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+### Listar todos 
+`GET`/api/caracterista
+**Exemplo de corpo de requisição** 
+
+```js
+{
+    "nm_caracteristica": "",
+    "tp_caracteristica": "",
+    "ds_caracteristica": ""
+}
+{
+    "nm_caracteristica": "",
+    "tp_caracteristica": "",
+    "ds_caracteristica": ""
+}
+```
+
+**Cógigos de respota**
+
+    |código| descrição
+    | - | -
+    |200 | dados retornados com sucesso
+    |402 | não existe evento cadastrado
+
+
+### Detalhar caracterista 
+
+`GET`/api/caracterista/{id}
+```js 
+{
+    "id_caracterista": 1,
+    "nm_caracteristica": "",
+    "tp_caracteristica": "",
+    "ds_caracteristica": ""
+}
+```
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe caracterista cadastrada
+
+
+### Apagar caracterista
+`DELETE`/api/caracterista/{id}
+
+|código| descrição
+| - | -
+|204 | dado apagado com sucesso
+|401 | não existe dado com o id informado
+
+
+
+
+### Cadastrar passeio 
+
+`POST`/api/passeio
+
+|Campo|Tipo|Obrigatório|Descriação
+|------ |------|:-----------: |---------
+|Nome|text|sim|Nome do passeio para poder indentificar.
+|Tipo|text|sim|Tipo do passeio para poder indentificar.
+|Descrição|text|sim|Descrição da caracteristica.
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+    "nm_passeio": "Cristo redentor",
+    "tp_passeio": "Pontos turisticos",
+    "ds_passeio": "Passeio para o cristo redentor"
+}   
+
+```
+
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+
+
+### Atualizar passeio
+`PUT`/api/passeio/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+    "nm_passeio": "MASP",
+    "tp_passeio": "Pontos turisticos",
+    "ds_passeio": "Passeio para o MASP"
+}   
+
+```
+
+**Exemplo de corpo da respota**
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|201 | dados cadastrado com sucesso
+|400 | os campos enviados sao invalidos
+
+### Listar todos 
+`GET`/api/passeio
+**Exemplo de corpo de requisição** 
+
+```js
+{
+    "id_passeio": 1,
+    "nm_passeio": "Cristo redentor",
+    "tp_passeio": "Pontos turisticos",
+    "ds_passeio": "Passeio para o cristo redentor"
+}
+{
+    "id_passeio": 2,
+    "nm_passeio": "MASP",
+    "tp_passeio": "Pontos turisticos",
+    "ds_passeio": "Passeio para o MASP"
+}
+```
+
+**Cógigos de respota**
+
+    |código| descrição
+    | - | -
+    |200 | dados retornados com sucesso
+    |402 | não existe evento cadastrado
+
+
+### Detalhar passeio 
+
+`GET`/api/passeio/{id}
+```js 
+{
+    "id_passeio": 1,
+    "nm_passeio": "Cristo redentor",
+    "tp_passeio": "Pontos turisticos",
+    "ds_passeio": "Passeio para o cristo redentor"
+}
+```
+
+**Cógigos de respota**
+
+|código| descrição
+| - | -
+|200 | dados retornados com sucesso
+|402 | não existe passeio cadastrada
+
+
+### Apagar passeio
+`DELETE`/api/passeio/{id}
+
+|código| descrição
+| - | -
+|204 | dado apagado com sucesso
+|401 | não existe dado com o id informado
+
 
