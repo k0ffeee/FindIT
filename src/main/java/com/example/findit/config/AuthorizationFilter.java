@@ -25,19 +25,21 @@ public class AuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+                
                 var token = getTokenFromHeader(request);
 
-                if (token != null){
+                if (token != null) {
                     var usuario = service.validate(token);
                     Authentication auth = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(auth);
                 }
 
                 filterChain.doFilter(request, response);
-
+      
     }
 
     private String getTokenFromHeader(HttpServletRequest request){
+
         var header = request.getHeader("Authorization");
 
         if (header == null || !header.startsWith("Bearer ") || header.isEmpty()){
@@ -46,4 +48,5 @@ public class AuthorizationFilter extends OncePerRequestFilter {
 
         return header.replace("Bearer ", "");
     }
+    
 }

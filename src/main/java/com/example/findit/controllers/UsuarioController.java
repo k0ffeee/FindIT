@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepository repository;
+    UsuarioRepository usuarioRepository;
 
     @Autowired
     AuthenticationManager manager;
@@ -34,7 +34,7 @@ public class UsuarioController {
     @PostMapping("/api/registrar")
     public ResponseEntity<Usuario> registrar(@RequestBody @Valid Usuario usuario){
         usuario.setSenha(encoder.encode(usuario.getSenha()));
-        repository.save(usuario);
+        usuarioRepository.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 

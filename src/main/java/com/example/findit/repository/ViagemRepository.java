@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.findit.models.Viagem;
 
 public interface ViagemRepository extends JpaRepository<Viagem, Long>{
-    Page<Viagem>findByNomeContaining(String busca, Pageable pageable);
+    // Page<Viagem>findByNomeContaining(String busca, Pageable pageable);
 }

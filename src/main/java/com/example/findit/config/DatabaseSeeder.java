@@ -66,30 +66,30 @@ public class DatabaseSeeder implements CommandLineRunner {
         Usuario u2 = new Usuario(2L, "Cesar", "Cesar@gmail.com", "w4B0!u4bA%&^");
         usuarioRepository.saveAll(List.of(u1, u2));
 
-        pacoteRepository.saveAll(List.of(
-            Pacotes.builder().nome("Rio de janeiro").tipo("Viagem de avião").descricao("Viagem de avião com tudo pago para o rio de janeiro").agencia(a2).destino(d2),
-            Pacotes.builder().nome("São Paulo").tipo("Viagem de avião").descricao("Viagem de avião com tudo pago").agencia(a2).destino(d2)));
+        // pacoteRepository.saveAll(List.of(
+        //     Pacotes.builder().nome("Rio de janeiro").tipo("Viagem de avião").descricao("Viagem de avião com tudo pago para o rio de janeiro").agencia(a2).destino(d2),
+        //     Pacotes.builder().nome("São Paulo").tipo("Viagem de avião").descricao("Viagem de avião com tudo pago").agencia(a2).destino(d2)));
 
-        viagemRepository.saveAll(List.of(
-            Viagem.builder().descricao("Viagem para o Rio de Janeiro").dataPartida(LocalDate.now()).dataFim(LocalDate.now()).destino(d1).usuario(u1),
-            Viagem.builder().descricao("Viagem para São Paulo").dataPartida(LocalDate.now()).dataFim(LocalDate.now()).destino(d1).usuario(u1)
-        ));
+        // viagemRepository.saveAll(List.of(
+        //     Viagem.builder().descricao("Viagem para o Rio de Janeiro").dataPartida(LocalDate.now()).dataFim(LocalDate.now()).destino(d1).usuario(u1),
+        //     Viagem.builder().descricao("Viagem para São Paulo").dataPartida(LocalDate.now()).dataFim(LocalDate.now()).destino(d1).usuario(u1)
+        // ));
 
-        preferenciasRepository.saveAll(List.of(
-            Preferencias.builder().nome("Clima").tipo("Calor").usuario(u2),
-            Preferencias.builder().nome("Clima").tipo("Frio").usuario(u1)
+        // preferenciasRepository.saveAll(List.of(
+        //     Preferencias.builder().nome("Clima").tipo("Calor").usuario(u2),
+        //     Preferencias.builder().nome("Clima").tipo("Frio").usuario(u1)
 
-        ));
+        // ));
 
-        caracteristicaRepository.saveAll(List.of(
-            Caracteristicas.builder().nome("Calor").tipo("temperatura").destino(d2),
-            Caracteristicas.builder().nome("Frio").tipo("temperatura").destino(d1)  
-        ));
+        // caracteristicaRepository.saveAll(List.of(
+        //     Caracteristicas.builder().nome("Calor").tipo("temperatura").destino(d2),
+        //     Caracteristicas.builder().nome("Frio").tipo("temperatura").destino(d1)  
+        // ));
         
-        passeioRepository.saveAll(List.of(
-            Passeio.builder().nome("Cristo redentor").tipo("Pontos turisticos").descricao("Passeio para o cristo redentor").destino(d2),
-            Passeio.builder().nome("MASP").tipo("Pontos turisticos").descricao("Passeio para o MASP").destino(d1)
-        ));
+        // passeioRepository.saveAll(List.of(
+        //     Passeio.builder().nome("Cristo redentor").tipo("Pontos turisticos").descricao("Passeio para o cristo redentor").destino(d2),
+        //     Passeio.builder().nome("MASP").tipo("Pontos turisticos").descricao("Passeio para o MASP").destino(d1)
+        // ));
 
 
 

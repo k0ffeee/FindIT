@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.findit.models.Caracteristicas;
 
 public interface CaracteristicaRepository extends JpaRepository<Caracteristicas, Long> {
-    Page<Caracteristicas> findByNomeContaining(String busca, Pageable pageable);
+    // Page<Caracteristicas> findByNomeContaining(String busca, Pageable pageable);
 }           
