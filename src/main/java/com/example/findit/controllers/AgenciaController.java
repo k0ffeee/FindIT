@@ -53,7 +53,7 @@ public class AgenciaController{
     public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 10) Pageable pageable){
         // Page<Agencia> agencias = (busca == null) ? 
         //     agenciaRepository.findAll(pageable) : 
-        //     agenciaRepository.findByAgenciaContaining(busca, pageable);
+        //     agenciaRepository.findByNomeContaining(busca, pageable);
 
         Page<Agencia> agencias = agenciaRepository.findAll(pageable);
             
@@ -68,13 +68,13 @@ public class AgenciaController{
 
     @GetMapping("{id}")
     public EntityModel<Agencia> show(@PathVariable Long id){
-        var agencia = agenciaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, despesa não encontrada"));
+        var agencia = agenciaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao achar agencia, não encontrada"));
         return agencia.toEntityModel();
     }
 
     @PutMapping("{id}")
     public EntityModel<Agencia> update(@PathVariable Long id, @RequestBody @Valid Agencia agencia){
-        agenciaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, despesa não encontrada"));
+        agenciaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, agencia não encontrada"));
 
         agencia.setId(id);
         agenciaRepository.save(agencia);

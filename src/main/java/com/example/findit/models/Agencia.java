@@ -39,7 +39,7 @@ public class Agencia {
             this,
             linkTo(methodOn(AgenciaController.class).show(id)).withSelfRel(),
             linkTo(methodOn(AgenciaController.class).index(null, Pageable.unpaged())).withRel("all"),
-            linkTo(methodOn(AgenciaController.class).show(id)).withRel("delete")
+            linkTo(methodOn(AgenciaController.class).show(id)).withRel("destroy")
         );
     }
 }

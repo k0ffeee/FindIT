@@ -1,5 +1,13 @@
 package com.example.findit.models;
 
+import org.springframework.hateoas.EntityModel;
+
+import com.example.findit.controllers.PasseioController;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+import org.springframework.data.domain.Pageable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,5 +41,14 @@ public class Passeio {
 
     @ManyToOne
     private Destino destino;
+
+    public EntityModel<Passeio> toEntityModel() {
+        return EntityModel.of(
+            this,
+            linkTo(methodOn(PasseioController.class).show(id)).withSelfRel(),
+            linkTo(methodOn(PasseioController.class).index(null, Pageable.unpaged())).withRel("all"),
+            linkTo(methodOn(PasseioController.class).show(id)).withRel("destroy")
+        );
+    }
 
 }
