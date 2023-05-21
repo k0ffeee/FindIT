@@ -60,7 +60,7 @@ public class CaracteristicasController {
 
     @PutMapping("{id}")
     public EntityModel<Caracteristicas> update(@PathVariable Long id, @RequestBody @Valid Caracteristicas caracteristicas){
-        caracteristicaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, agencia não encontrada"));
+        caracteristicaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, caracteristica não encontrada"));
 
         caracteristicas.setId(id);
         caracteristicaRepository.save(caracteristicas);
@@ -70,7 +70,7 @@ public class CaracteristicasController {
 
     @DeleteMapping("{id}")
     public ResponseEntity<Caracteristicas> destroy(@PathVariable Long id){
-        var caracteristica = caracteristicaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, agencia não encontrada"));
+        var caracteristica = caracteristicaRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, caracteristica não encontrada"));
         caracteristicaRepository.delete(caracteristica);
         return ResponseEntity.noContent().build();
     }
