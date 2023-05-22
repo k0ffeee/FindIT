@@ -25,9 +25,17 @@ import com.example.findit.exceptions.RestNotFoundException;
 import com.example.findit.models.Preferencias;
 import com.example.findit.repository.PreferenciasRepository;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import jakarta.validation.Valid;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
+@Tag(name = "Preferencia")
 @RequestMapping("/api/preferencias")
 public class PreferenciasController {
     Logger log = LoggerFactory.getLogger(getClass());
@@ -39,6 +47,14 @@ public class PreferenciasController {
     PagedResourcesAssembler<Object> assembler;
 
     @GetMapping
+    @Operation(
+        summary = "Detalhar Preferenciass.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 10) Pageable pageable){
         Page<Preferencias> preferencias = preferenciasRepository.findAll(pageable);
 
@@ -46,18 +62,42 @@ public class PreferenciasController {
     }
 
     @PostMapping
+    @Operation(
+        summary = "Cadastrar Preferencias.",
+        description = "Endpoint que recebe os parametros de registro de Preferencias e cadastra uma." 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Preferencias cadastrada com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Os campos enviados sao invalidos")
+    })
     public ResponseEntity<Preferencias> create(@RequestBody @Valid Preferencias preferencias){
         preferenciasRepository.save(preferencias);
         return ResponseEntity.status(HttpStatus.CREATED).body(preferencias);
     }
 
     @GetMapping("{id}")
+    @Operation(
+        summary = "Detalhar Preferencias.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public EntityModel<Preferencias> show(@PathVariable Long id){
         var preferencias = preferenciasRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao achar preferencia, não encontrada"));
         return preferencias.toEntityModel();
     }
 
     @PutMapping("{id}")
+    @Operation(
+        summary = "Atualizar Preferencias.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = ""),
+        @ApiResponse(responseCode = "400", description = "")
+    })
     public EntityModel<Preferencias> update(@PathVariable Long id, @RequestBody @Valid Preferencias preferencias){
         preferenciasRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, preferencia não encontrada"));
 
@@ -68,6 +108,14 @@ public class PreferenciasController {
     }   
 
     @DeleteMapping("{id}")
+    @Operation(
+        summary = "Deletar Preferencias.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "204", description = ""),
+        @ApiResponse(responseCode = "401", description = "")
+    })
     public ResponseEntity<Preferencias> destroy(@PathVariable Long id){
         var preferencias = preferenciasRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, preferencia não encontrada"));
         preferenciasRepository.delete(preferencias);

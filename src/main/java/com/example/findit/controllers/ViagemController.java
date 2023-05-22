@@ -25,9 +25,17 @@ import com.example.findit.exceptions.RestNotFoundException;
 import com.example.findit.models.Viagem;
 import com.example.findit.repository.ViagemRepository;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import jakarta.validation.Valid;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
+@Tag(name = "Viagem")
 @RequestMapping("/api/viagens")
 public class ViagemController {
     Logger log = LoggerFactory.getLogger(getClass());
@@ -40,6 +48,14 @@ public class ViagemController {
 
 
     @GetMapping
+    @Operation(
+        summary = "Detalhar Viagens.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 10) Pageable pageable){
         Page<Viagem> viagem = viagemRepository.findAll(pageable);
 
@@ -47,18 +63,42 @@ public class ViagemController {
     }
 
     @PostMapping
+    @Operation(
+        summary = "Cadastrar Viagem.",
+        description = "Endpoint que recebe os parametros de registro de Viagem e cadastra uma." 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Viagem cadastrada com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Os campos enviados sao invalidos")
+    })
     public ResponseEntity<Viagem> create(@RequestBody @Valid Viagem viagem){
         viagemRepository.save(viagem);
         return ResponseEntity.status(HttpStatus.CREATED).body(viagem);
     }
 
     @GetMapping("{id}")
+    @Operation(
+        summary = "Detalhar Viagem.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public EntityModel<Viagem> show(@PathVariable Long id){
         var viagem = viagemRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao achar viagem, não encontrada"));
         return viagem.toEntityModel();
     }
 
     @PutMapping("{id}")
+    @Operation(
+        summary = "Atualizar Viagem.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = ""),
+        @ApiResponse(responseCode = "400", description = "")
+    })
     public EntityModel<Viagem> update(@PathVariable Long id, @RequestBody @Valid Viagem viagem){
         viagemRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, viagem não encontrada"));
 
@@ -69,6 +109,14 @@ public class ViagemController {
     } 
 
     @DeleteMapping("{id}")
+    @Operation(
+        summary = "Deletar Viagem.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "204", description = ""),
+        @ApiResponse(responseCode = "401", description = "")
+    })
     public ResponseEntity<Viagem> destroy(@PathVariable Long id){
         var viagem = viagemRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, viagem não encontrada"));
         viagemRepository.delete(viagem);

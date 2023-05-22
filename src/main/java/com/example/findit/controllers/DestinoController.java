@@ -25,9 +25,17 @@ import com.example.findit.exceptions.RestNotFoundException;
 import com.example.findit.models.Destino;
 import com.example.findit.repository.DestinoRepository;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import jakarta.validation.Valid;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
+@Tag(name = "Destino")
 @RequestMapping("/api/destinos")
 public class DestinoController {
     Logger log = LoggerFactory.getLogger(getClass());
@@ -40,6 +48,14 @@ public class DestinoController {
 
 
     @GetMapping
+    @Operation(
+        summary = "Detalhar Destinos.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 10) Pageable pageable){
         Page<Destino> destino = destinoRepository.findAll(pageable);
 
@@ -47,6 +63,14 @@ public class DestinoController {
     }
 
     @PostMapping
+    @Operation(
+        summary = "Cadastrar Destino.",
+        description = "Endpoint que recebe os parametros de registro de Destino e cadastra uma." 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Destino cadastrada com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Os campos enviados sao invalidos")
+    })
     public ResponseEntity<Destino> create(@RequestBody @Valid Destino destino){
         destinoRepository.save(destino);
         return ResponseEntity.status(HttpStatus.CREATED).body(destino);
@@ -54,6 +78,14 @@ public class DestinoController {
 
     
     @GetMapping("{id}")
+    @Operation(
+        summary = "Detalhar Destino.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public EntityModel<Destino> show(@PathVariable Long id){
         var destino = destinoRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao achar caracteristica, não encontrada"));
         return destino.toEntityModel();
@@ -61,8 +93,16 @@ public class DestinoController {
 
 
     @PutMapping("{id}")
+    @Operation(
+        summary = "Atualizar Destino.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = ""),
+        @ApiResponse(responseCode = "400", description = "")
+    })
     public EntityModel<Destino> update(@PathVariable Long id, @RequestBody @Valid Destino destino){
-        destinoRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, agencia não encontrada"));
+        destinoRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, Destino não encontrada"));
 
         destino.setId(id);
         destinoRepository.save(destino);
@@ -71,8 +111,16 @@ public class DestinoController {
     }
 
     @DeleteMapping("{id}")
+    @Operation(
+        summary = "Deletar Destino.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "204", description = ""),
+        @ApiResponse(responseCode = "401", description = "")
+    })
     public ResponseEntity<Destino> destroy(@PathVariable Long id){
-        var destino = destinoRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, agencia não encontrada"));
+        var destino = destinoRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, Destino não encontrada"));
         destinoRepository.delete(destino);
         return ResponseEntity.noContent().build();
     }

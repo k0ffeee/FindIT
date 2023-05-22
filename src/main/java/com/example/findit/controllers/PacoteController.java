@@ -25,10 +25,19 @@ import com.example.findit.exceptions.RestNotFoundException;
 import com.example.findit.models.Pacotes;
 import com.example.findit.repository.PacoteRepository;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import jakarta.validation.Valid;
 
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
+@Tag(name = "Pacote")
 @RequestMapping("/api/pacotes")
 public class PacoteController {
     Logger log = LoggerFactory.getLogger(getClass());
@@ -40,6 +49,14 @@ public class PacoteController {
     PagedResourcesAssembler<Object> assembler;
 
     @GetMapping
+    @Operation(
+        summary = "Detalhar Pacotes.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 10) Pageable pageable){
         Page<Pacotes> pacote = pacoteRepository.findAll(pageable);
 
@@ -47,18 +64,42 @@ public class PacoteController {
     }
 
     @PostMapping
+    @Operation(
+        summary = "Cadastrar Pacote.",
+        description = "Endpoint que recebe os parametros de registro de Pacote e cadastra uma." 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Pacote cadastrada com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Os campos enviados sao invalidos")
+    })
     public ResponseEntity<Pacotes> create(@RequestBody @Valid Pacotes pacotes){
         pacoteRepository.save(pacotes);
         return ResponseEntity.status(HttpStatus.CREATED).body(pacotes);
     }
 
     @GetMapping("{id}")
+    @Operation(
+        summary = "Detalhar Pacote.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = ""),
+        @ApiResponse(responseCode = "404", description = "")
+    })
     public EntityModel<Pacotes> show(@PathVariable Long id){
         var pacotes = pacoteRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao achar pacote, não encontrada"));
         return pacotes.toEntityModel();
     }
 
     @PutMapping("{id}")
+    @Operation(
+        summary = "Atualizar Pacote.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = ""),
+        @ApiResponse(responseCode = "400", description = "")
+    })
     public EntityModel<Pacotes> update(@PathVariable Long id, @RequestBody @Valid Pacotes pacotes){
         pacoteRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, pacote não encontrada"));
 
@@ -69,6 +110,14 @@ public class PacoteController {
     }    
 
     @DeleteMapping("{id}")
+    @Operation(
+        summary = "Deletar Pacote.",
+        description = "" 
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "204", description = ""),
+        @ApiResponse(responseCode = "401", description = "")
+    })
     public ResponseEntity<Pacotes> destroy(@PathVariable Long id){
         var pacotes = pacoteRepository.findById(id).orElseThrow(() -> new RestNotFoundException("Erro ao apagar, pacote não encontrada"));
         pacoteRepository.delete(pacotes);

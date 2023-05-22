@@ -14,9 +14,14 @@ import com.example.findit.models.Usuario;
 import com.example.findit.repository.UsuarioRepository;
 import com.example.findit.service.TokenJwtService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import jakarta.validation.Valid;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
+@Tag(name = "Usuario")
 public class UsuarioController {
 
     @Autowired
