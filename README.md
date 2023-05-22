@@ -141,7 +141,7 @@ Uma API para obter informações sobre turismo
 |código| descrição
 | - | -
 |200 | dados retornados com sucesso
-|402 | não existe agencia cadastrado
+|404 | não existe agencia cadastrado
 
 
 ### Detalhar Agencia 
@@ -160,7 +160,7 @@ Uma API para obter informações sobre turismo
 |código| descrição
 | - | -
 |200 | dados retornados com sucesso
-|402 | não existe agencia cadastrada
+|404 | não existe agencia cadastrada
 
 ### Apagar agencia
 `DELETE`/api/agencia/{id}
@@ -267,7 +267,7 @@ Uma API para obter informações sobre turismo
 |código| descrição
 | - | -
 |200 | dados retornados com sucesso
-|402 | não existe pacote cadastrada
+|404 | não existe pacote cadastrada
 
 ### Apagar pacote
 `DELETE`/api/pacote/{id}
@@ -362,7 +362,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe destino cadastrado
+    |404 | não existe destino cadastrado
 
 
 ### Detalhar destino 
@@ -478,7 +478,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe viagem cadastrado
+    |404 | não existe viagem cadastrado
 
 
 ### Detalhar viagem 
@@ -593,7 +593,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe usuario cadastrado
+    |404 | não existe usuario cadastrado
 
 ### Detalhar usuario 
 
@@ -640,7 +640,7 @@ Uma API para obter informações sobre turismo
 {
   "nm_preferencia":"Clima",
   "tp_preferencia": "Calor" ,
-  "ds__preferencia": "O usuário prefere calor"
+  "ds_preferencia": "O usuário prefere calor"
 }   
 
 ```
@@ -665,7 +665,7 @@ Uma API para obter informações sobre turismo
 {
   "nm_preferencia":"Clima",
   "tp_preferencia": "Frio" ,
-  "ds__preferencia": "O usuário prefere frio"
+  "ds_preferencia": "O usuário prefere frio"
 }   
 
 ```
@@ -688,13 +688,13 @@ Uma API para obter informações sobre turismo
     "id_preferencia": 1,
     "nm_preferencia":"Clima",
      "tp_preferencia": "Calor" ,
-    "ds__preferencia": "O usuário prefere calor"
+    "ds_preferencia": "O usuário prefere calor"
 }
 {
     "id_preferencia": 2,
      "nm_preferencia":"Clima",
      "tp_preferencia": "Frio" ,
-     "ds__preferencia": "O usuário prefere frio"
+     "ds_preferencia": "O usuário prefere frio"
 }
 ```
 
@@ -714,7 +714,7 @@ Uma API para obter informações sobre turismo
     "id_preferencia": 1,
     "nm_preferencia":"Clima",
     "tp_preferencia": "Calor" ,
-    "ds__preferencia": "O usuário prefere calor"
+    "ds_preferencia": "O usuário prefere calor"
 }
 ```
 
@@ -723,7 +723,7 @@ Uma API para obter informações sobre turismo
 |código| descrição
 | - | -
 |200 | dados retornados com sucesso
-|402 | não existe preferencia cadastrada
+|404| não existe preferencia cadastrada
 
 
 ### Apagar preferencia
@@ -838,7 +838,7 @@ Uma API para obter informações sobre turismo
 |código| descrição
 | - | -
 |200 | dados retornados com sucesso
-|402 | não existe caracterista cadastrada
+|404| não existe caracterista cadastrada
 
 
 ### Apagar caracterista
@@ -932,7 +932,7 @@ Uma API para obter informações sobre turismo
     |código| descrição
     | - | -
     |200 | dados retornados com sucesso
-    |402 | não existe passeio cadastrado
+    |404| não existe passeio cadastrado
 
 
 ### Detalhar passeio 
